@@ -19,6 +19,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -59,7 +60,7 @@ public class Lista_cercas extends AppCompatActivity {
     private RecyclerView mRecyclerViewAceptadas;
     private RecyclerView.Adapter mAdapterco;
     private RecyclerView.LayoutManager mLayoutManagerco;
-
+    TextView texto;
     private RecyclerView.Adapter mAdaptercoAcep;
     private RecyclerView.LayoutManager mLayoutManagercoAcep;
     //El dataset de tipo Photo
@@ -77,7 +78,7 @@ return true;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_cercas);
 
-
+texto= (TextView) findViewById(R.id.agrega_tu_cerca);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView= findViewById(R.id.nav_view);
         drawerToggle= new ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close);
@@ -285,12 +286,18 @@ return true;
 
                                     }
                                     else{
+
                                         //  texto2.setVisibility(View.VISIBLE);
                                         mRecyclerViewAceptadas.setVisibility(View.GONE);
                                         //     aceptadas_s.setVisibility(View.GONE);
                                     }
                                 }
+                            }if (jsonArray.length()>0){
+
+                            }else{
+                                texto.setVisibility(View.VISIBLE);
                             }
+
                             //  Toast.makeText(getApplicationContext(), obj.getString("listConsents"), Toast.LENGTH_LONG).show();
                         } catch (UnsupportedEncodingException e) {
                             e.printStackTrace();

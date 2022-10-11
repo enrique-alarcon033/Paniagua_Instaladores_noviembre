@@ -11,7 +11,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_start">
+    android:background="@color/pseudo_white">
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -340,6 +340,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="false"
         android:backgroundTint="#FFF"
+        android:visibility="gone"
         android:onClick="onClickSetCurrentDate"
         android:text="Actualizar hora local"
 

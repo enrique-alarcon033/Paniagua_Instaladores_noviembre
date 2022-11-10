@@ -157,7 +157,7 @@
     <string name="lb_device_name">Nombre de tu dispositivo</string>
     <string name="btn_register_device">Registrar dispositivo</string>
     <string name="title_success">Felicidades, has finalizado el alta de tu dispositivo.</string>
-    <string name="lb_success_instructions">La red Wifi de Yonusa se desconectará, asegúrate de estar conectado a una red que cuente con servicio de internet antes de continuar. En un momento serás dirigido a la pantalla principal, espera por favor.</string>
+    <string name="lb_success_instructions">La red Wifi de Yonusa se desconectará, asegúrate de estar conectado a una red que cuente con servicio de internet antes de continuar.</string>
     <string name="btn_success">Finalizar</string>
     <string name="door_on_message_seconds">Se cerrará la puerta en 5seg</string>
     <string name="alert_title_atention">Atención</string>

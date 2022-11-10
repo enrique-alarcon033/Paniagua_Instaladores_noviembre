@@ -80,8 +80,8 @@ public class AddANewDeviceActivity extends AppCompatActivity {
                     case (ErrorCodes.SUCCESS):
 
                         String UUID = response.body().getUUID();
-                        Intent intentAddDeviceStep1 = new Intent(AddANewDeviceActivity.this, GetYonusaWifiActivity.class);
 
+                        Intent intentAddDeviceStep1 = new Intent(AddANewDeviceActivity.this, GetYonusaWifiActivity.class);
                         intentAddDeviceStep1.putExtra("UUID", UUID);
 
                         String preferenceContainer = SP_Dictionary.USER_INFO;

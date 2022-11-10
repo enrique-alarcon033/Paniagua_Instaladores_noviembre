@@ -93,7 +93,7 @@ public class Asignar_Cerca extends AppCompatActivity {
         JSONObject obj = new JSONObject();
         obj.put("usuarioAdministradorId",user_id);
         obj.put("usuarioInvitadoEmail",email);
-        obj.put("aliasUsuarioInvitado","borrar");
+        obj.put("aliasUsuarioInvitado","Administrador");
         obj.put("cercaId",cerca);
 
 
@@ -109,10 +109,25 @@ public class Asignar_Cerca extends AppCompatActivity {
         co3.put("controlId",3);
         co3.put("estadoPermiso",true);
 
+        JSONObject co4= new JSONObject();
+        co4.put("controlId",4);
+        co4.put("estadoPermiso",true);
+
+        JSONObject co5= new JSONObject();
+        co5.put("controlId",5);
+        co5.put("estadoPermiso",true);
+
+        JSONObject co6= new JSONObject();
+        co6.put("controlId",6);
+        co6.put("estadoPermiso",true);
+
         JSONArray array = new JSONArray();
         array.put(co1);
         array.put(co2);
         array.put(co3);
+        array.put(co4);
+        array.put(co5);
+        array.put(co6);
 
         obj.put("PermisoControles",array);
         //   oJSONObject.put("coordenates",_contrasena);
@@ -148,7 +163,7 @@ public class Asignar_Cerca extends AppCompatActivity {
 
                             if (valor.equals("0")){
 
-                                Toast.makeText(getApplicationContext(), "Asignacion correcta", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "Asignación correcta", Toast.LENGTH_LONG).show();
                                 Intent i = new Intent(Asignar_Cerca.this, Lista_cercas.class);
                                 startActivity(i);
                                 finish();
@@ -156,7 +171,7 @@ public class Asignar_Cerca extends AppCompatActivity {
 
                             if (valor.equals("-1")){
 
-                                Toast.makeText(getApplicationContext(), "La cerca no se pudo asignar", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getApplicationContext(), "La cerca no se pudo asignar, favor de verifiar el correo", Toast.LENGTH_LONG).show();
                                 finish();
                             }
 

@@ -27,7 +27,7 @@
             android:contentDescription="@string/app_name"
             android:elevation="2.5dp"
             android:scaleType="fitCenter"
-            android:src="@drawable/logo_yonusa" />
+            android:src="@drawable/logo_paniagua" />
 
     </RelativeLayout>
 
@@ -53,7 +53,7 @@
 
     </RelativeLayout>
 
-    <!--<androidx.appcompat.widget.AppCompatButton
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_privacy_policy_accept"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -63,7 +63,8 @@
         android:layout_marginRight="16dp"
         android:background="@drawable/rounded_login_btn_shape"
         android:text="@string/privacy_policy_accept_button"
-        android:textColor="@color/colorPrimaryDark" />-->
+        android:textColor="@color/colorPrimaryDark"
+        tools:ignore="NotSibling" />
 
 
 </RelativeLayout>

@@ -60,7 +60,7 @@ public class Lista_cercas extends AppCompatActivity {
     private RecyclerView mRecyclerViewAceptadas;
     private RecyclerView.Adapter mAdapterco;
     private RecyclerView.LayoutManager mLayoutManagerco;
-    TextView texto;
+    TextView texto,correo,nombre,apellido;
     private RecyclerView.Adapter mAdaptercoAcep;
     private RecyclerView.LayoutManager mLayoutManagercoAcep;
     //El dataset de tipo Photo
@@ -77,10 +77,24 @@ return true;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_cercas);
+        SharedPreferences misPreferencias = getSharedPreferences("Datos_usuario", Context.MODE_PRIVATE);
+        String email =  misPreferencias.getString("email","0");
+        String nombre_t =  misPreferencias.getString("nombre","0");
+        String apellido_t =  misPreferencias.getString("apellido","0");
+        texto= (TextView) findViewById(R.id.agrega_tu_cerca);
 
-texto= (TextView) findViewById(R.id.agrega_tu_cerca);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView= findViewById(R.id.nav_view);
+
+        View header = navigationView.getHeaderView(0);
+        correo = (TextView) header.findViewById(R.id.user_correo);
+        nombre = (TextView) header.findViewById(R.id.nombre);
+        apellido = (TextView) header.findViewById(R.id.apellido);
+        correo.setText(email);
+        nombre.setText(nombre_t);
+        apellido.setText(apellido_t);
+
+
         drawerToggle= new ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
@@ -91,24 +105,30 @@ texto= (TextView) findViewById(R.id.agrega_tu_cerca);
                 switch (item.getItemId()){
                     case R.id.nav_jugadores:
                     {
-                        Toast.makeText(Lista_cercas.this,"opcion1",Toast.LENGTH_LONG).show();
+                        Toast.makeText(Lista_cercas.this,"Proximamente",Toast.LENGTH_LONG).show();
                         break;
                     }
                     case R.id.nav_albitros:
                     {
-                        Toast.makeText(Lista_cercas.this,"opcion2",Toast.LENGTH_LONG).show();
+                        Toast.makeText(Lista_cercas.this,"Proximamente",Toast.LENGTH_LONG).show();
                         break;
                     }
                     case R.id.nav_jornadas:
                     {
-                        Toast.makeText(Lista_cercas.this,"opcion3",Toast.LENGTH_LONG).show();
+                        Toast.makeText(Lista_cercas.this,"Proximamente",Toast.LENGTH_LONG).show();
                         break;
                     }
 
                     case R.id.nav_cerrar:
                     {
                        // Toast.makeText(Lista_cercas.this,"Cerrando Sesión...",Toast.LENGTH_LONG).show();
-                      Cerrar();
+                        try {
+                            CerrarSesion();
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
                 return false;
@@ -132,12 +152,13 @@ texto= (TextView) findViewById(R.id.agrega_tu_cerca);
         });
 
         try {
-            obtener_tarjetas();
+            obtener_cercas();
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
+
 
         swipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
 
@@ -186,7 +207,7 @@ texto= (TextView) findViewById(R.id.agrega_tu_cerca);
             mAdaptercoAcep.notifyDataSetChanged();
         }
     }
-    public boolean obtener_tarjetas() throws JSONException, UnsupportedEncodingException {
+    public boolean obtener_cercas() throws JSONException, UnsupportedEncodingException {
         myDatasetCoAcep = new ArrayList<cercas_model_completo>();
 
         SharedPreferences misPreferencias = getSharedPreferences("Datos_usuario", Context.MODE_PRIVATE);
@@ -337,7 +358,7 @@ texto= (TextView) findViewById(R.id.agrega_tu_cerca);
     public boolean CerrarSesion() throws JSONException, UnsupportedEncodingException {
         myDatasetCoAcep = new ArrayList<cercas_model_completo>();
 
-        SharedPreferences misPreferencias = getSharedPreferences("User_info", Context.MODE_PRIVATE);
+        SharedPreferences misPreferencias = getSharedPreferences("Datos_usuario", Context.MODE_PRIVATE);
 
         String id_user = misPreferencias.getString("User_id", "0");
         String aplicacion = "application/json";
@@ -426,6 +447,8 @@ texto= (TextView) findViewById(R.id.agrega_tu_cerca);
 
         return false;
     }
+
+
 
     @Override
     public void onBackPressed() {

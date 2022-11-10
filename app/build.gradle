@@ -8,15 +8,15 @@ apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.firebase-perf'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.yonusa.paniaguainstaladores"
         minSdkVersion 23
-        targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        targetSdkVersion 31
+        versionCode 5
+        versionName "1.0.5"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -78,8 +78,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
     // Retrofit
-    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
-    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.google.code.gson:gson:2.8.6'
 
     //country code picker
@@ -111,7 +111,7 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.1'
 
     implementation 'com.loopj.android:android-async-http:1.4.9'
-    'com.squareup.okhttp3:okhttp:3.4.1'
+    'com.squareup.okhttp3:okhttp:3.11.0'
 
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
 
@@ -121,5 +121,7 @@ dependencies {
     //Declare the dependency for the Performance Monitoring library
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-perf:20.0.2'
+
+    implementation 'com.gusakov:pulse-countdown:1.1.0-rc1'
 
 }
